@@ -1,0 +1,21 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+  version="3.0">
+  <persistence-unit name="vanilla-jpa-unit">
+    <description>A demo persisting to a DB with vanilla JPA</description>
+
+    <class>dev.etimbuk.models.Customer</class>
+
+    <properties>
+      <!-- Database connection details -->
+      <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/blogposts" />
+      <property name="jakarta.persistence.jdbc.user" value="etimbuk" />
+      <property name="jakarta.persistence.jdbc.password" value="etimbuk" />
+
+      <!-- DON'T USE THIS IN PRODUCTION -->
+      <!-- automatically drop and create required database tables -->
+      <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+    </properties>
+
+  </persistence-unit>
+</persistence>
