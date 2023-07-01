@@ -1,10 +1,6 @@
 package dev.etimbuk.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,8 +18,14 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "fullName")
     private String fullName;
+
+    @Column(name = "joinedOn")
     private LocalDate joinedOn;
 
     public Customer(String username, String fullName, LocalDate joinedOn) {
