@@ -8,13 +8,22 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'java'
+    id 'org.springframework.boot' version '3.0.8'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 // Properties
 def versions = [
-        'hibernateCore' : '6.2.4.Final',
+        'springframework' : '3.0.8',
+        'spring.dependency-management' : '1.1.0',
         'googleGuava'   : '31.1-jre',
         'postgres'  : '42.6.0',
         'log4j' : '2.20.0',
@@ -31,21 +40,22 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
 
-    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
-    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
-
     // This dependency is used by the application.
     implementation group: 'com.google.guava', name: 'guava', version: versions.googleGuava
 
-    // Postgres
-    implementation group: 'org.postgresql', name: 'postgresql', version: versions.postgres
-
-    // Hibernate
-    implementation group: 'org.hibernate.orm', name: 'hibernate-core', version: versions.hibernateCore
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // Logging
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: versions.log4j
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: versions.log4j
+
+    // Postgres
+    runtimeOnly group: 'org.postgresql', name: 'postgresql', version: versions.postgres
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
 }
 
 testing {
@@ -63,9 +73,4 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
-}
-
-application {
-    // Define the main class for the application.
-    mainClass = 'dev.etimbuk.App'
 }
