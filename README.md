@@ -5,4 +5,4 @@ This repo split into 3-branches gives examples of how JPA, Hibernate and Spring 
 - [jpa-hibernate](https://github.com/Gogetter/jpa-hibernate-spring-data-jpa-in-practice/tree/jpa-hibernate)
 - [spring-data-jpa](https://github.com/Gogetter/jpa-hibernate-spring-data-jpa-in-practice/tree/spring-data-jpa)
 
-A detailed blogpost is also available here
+A detailed blogpost is also available [here](https://medium.com/@euedofia/spring-data-jpa-an-introduction-3209d34635af)
