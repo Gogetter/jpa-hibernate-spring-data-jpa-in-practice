@@ -22,13 +22,21 @@ gradle-app.setting
 target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea/modules/**
+.idea/sonarlint/**
+.idea/**
+.idea/libraries/**
 *.iws
 *.iml
 *.ipr
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
 
 ### Eclipse ###
 .apt_generated
