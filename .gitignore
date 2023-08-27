@@ -23,6 +23,8 @@ target/
 
 ### IntelliJ IDEA ###
 .idea/**
+.idea/modules/**
+.idea/sonarlint/**
 
 ### Eclipse ###
 .apt_generated
